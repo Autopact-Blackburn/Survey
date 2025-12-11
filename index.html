@@ -5,9 +5,6 @@
   <title>Customer Purchase Experience Survey</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- SUPABASE -->
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
   <style>
     * { box-sizing: border-box; }
 
@@ -186,6 +183,16 @@
       transform: translateX(-50%) translateY(0px);
     }
   </style>
+
+  <!-- Supabase Client -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <script>
+    const SUPABASE_URL = "https://jfvqdpephdqzalkcnmdy.supabase.co";
+    const SUPABASE_KEY = "sb_publishable_l1p7oa8Lrp8rMPD2xcTyHw_vL_bwk8X";
+    const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+  </script>
+
 </head>
 
 <body>
@@ -197,7 +204,7 @@
   <div class="container">
     <h1>Customer Purchase Experience Survey</h1>
     <div class="subtitle">
-      Your feedback helps shape the future car-buying experience.
+      Your feedback helps us shape the future car-buying experience.
     </div>
 
     <div class="progress-container">
@@ -208,11 +215,10 @@
 
       <!-- PAGE 1 -->
       <div class="page active" data-page="1">
-
         <div class="section-label">Section 1 · Purchase Experience</div>
 
         <div class="question-block">
-          <span class="question">1. When did you purchase your vehicle?</span>
+          <span class="question">1. When did you purchase your vehicle from us?</span>
           <div class="option"><input type="radio" name="purchase_time" value="past_month">Within the past month</div>
           <div class="option"><input type="radio" name="purchase_time" value="1_3">1–3 months ago</div>
           <div class="option"><input type="radio" name="purchase_time" value="3_12">3–12 months ago</div>
@@ -220,7 +226,7 @@
         </div>
 
         <div class="question-block">
-          <span class="question">2. Rate your overall sales experience</span>
+          <span class="question">2. How would you rate your overall sales experience?</span>
           <div class="option"><input type="radio" name="exp_rating" value="excellent">Excellent</div>
           <div class="option"><input type="radio" name="exp_rating" value="good">Good</div>
           <div class="option"><input type="radio" name="exp_rating" value="average">Average</div>
@@ -229,7 +235,7 @@
         </div>
 
         <div class="question-block">
-          <span class="question">3. When you visited, how quickly were you greeted?</span>
+          <span class="question">3. When you visited for your purchase, how quickly were you greeted or acknowledged?</span>
           <div class="option"><input type="radio" name="greet_time" value="1_min">Within 1 minute</div>
           <div class="option"><input type="radio" name="greet_time" value="1_5">1–5 minutes</div>
           <div class="option"><input type="radio" name="greet_time" value="5_10">5–10 minutes</div>
@@ -238,17 +244,17 @@
         </div>
 
         <div class="question-block">
-          <span class="question">4. What parts felt smooth?</span>
+          <span class="question">4. What parts of your purchase experience felt smooth or easy?</span>
           <textarea name="smooth"></textarea>
         </div>
 
         <div class="question-block">
-          <span class="question">5. What parts felt frustrating?</span>
+          <span class="question">5. What parts felt slow, confusing, or frustrating?</span>
           <textarea name="frustrating"></textarea>
         </div>
 
         <div class="question-block">
-          <span class="question">6. Compared to other dealers, what stood out?</span>
+          <span class="question">6. Thinking about other dealerships you visited, what stood out to you – positively or negatively?</span>
           <textarea name="other_dealers"></textarea>
         </div>
 
@@ -256,16 +262,14 @@
           <span></span>
           <button type="button" class="btn btn-next" onclick="nextPage()">Next</button>
         </div>
-
       </div>
 
       <!-- PAGE 2 -->
       <div class="page" data-page="2">
-
         <div class="section-label">Section 2 · Consultant & Digital Experience</div>
 
         <div class="question-block">
-          <span class="question">7. How comfortable were you with your consultant?</span>
+          <span class="question">7. How comfortable did you feel with your sales consultant?</span>
           <div class="option"><input type="radio" name="comfort" value="very">Very comfortable</div>
           <div class="option"><input type="radio" name="comfort" value="somewhat">Somewhat comfortable</div>
           <div class="option"><input type="radio" name="comfort" value="neutral">Neutral</div>
@@ -274,7 +278,7 @@
         </div>
 
         <div class="question-block">
-          <span class="question">8. Did the team follow up appropriately?</span>
+          <span class="question">8. Did you feel the team followed up with you appropriately?</span>
           <div class="option"><input type="radio" name="follow_up" value="yes">Yes</div>
           <div class="option"><input type="radio" name="follow_up" value="sometimes">Sometimes</div>
           <div class="option"><input type="radio" name="follow_up" value="rarely">Rarely</div>
@@ -282,28 +286,30 @@
         </div>
 
         <div class="question-block">
-          <span class="question">9. Would starting with a QR code (or app) help?</span>
+          <span class="question">
+            9. Would beginning the process using a QR code (or app) so you don't need to repeat yourself improve your experience?
+          </span>
           <div class="option"><input type="radio" name="qr_helpful" value="yes">Yes</div>
           <div class="option"><input type="radio" name="qr_helpful" value="maybe">Maybe</div>
           <div class="option"><input type="radio" name="qr_helpful" value="no">No</div>
         </div>
 
         <div class="question-block">
-          <span class="question">10. Would you prefer to browse before speaking?</span>
+          <span class="question">10. Would you prefer to browse before speaking with a consultant?</span>
           <div class="option"><input type="radio" name="prefer_browse" value="yes">Yes</div>
           <div class="option"><input type="radio" name="prefer_browse" value="maybe">Maybe</div>
           <div class="option"><input type="radio" name="prefer_browse" value="no">No</div>
         </div>
 
         <div class="question-block">
-          <span class="question">11. Would instant online test-drive booking improve things?</span>
+          <span class="question">11. Would instant online test-drive booking improve your experience?</span>
           <div class="option"><input type="radio" name="online_booking" value="yes">Yes</div>
           <div class="option"><input type="radio" name="online_booking" value="maybe">Maybe</div>
           <div class="option"><input type="radio" name="online_booking" value="no">No</div>
         </div>
 
         <div class="question-block">
-          <span class="question">12. Would digitally entering details be more convenient?</span>
+          <span class="question">12. Would digitally entering your details be more convenient?</span>
           <div class="option"><input type="radio" name="digital_details" value="yes">Yes</div>
           <div class="option"><input type="radio" name="digital_details" value="maybe">Maybe</div>
           <div class="option"><input type="radio" name="digital_details" value="no">No</div>
@@ -313,16 +319,14 @@
           <button type="button" class="btn btn-back" onclick="prevPage()">Back</button>
           <button type="button" class="btn btn-next" onclick="nextPage()">Next</button>
         </div>
-
       </div>
 
       <!-- PAGE 3 -->
       <div class="page" data-page="3">
-
         <div class="section-label">Section 3 · Delivery Experience</div>
 
         <div class="question-block">
-          <span class="question">13. How long did your delivery take?</span>
+          <span class="question">13. How long did your consultant spend on delivery?</span>
           <div class="option"><input type="radio" name="delivery_time" value="0_10">0–10 minutes</div>
           <div class="option"><input type="radio" name="delivery_time" value="10_30">10–30 minutes</div>
           <div class="option"><input type="radio" name="delivery_time" value="30_60">30–60 minutes</div>
@@ -352,28 +356,26 @@
           <button type="button" class="btn btn-back" onclick="prevPage()">Back</button>
           <button type="button" class="btn btn-next" onclick="nextPage()">Next</button>
         </div>
-
       </div>
 
       <!-- PAGE 4 -->
       <div class="page" data-page="4">
-
         <div class="section-label">Section 4 · Final Thoughts</div>
 
         <div class="question-block">
-          <span class="question">17. If you could change one thing, what would it be?</span>
+          <span class="question">17. If you could change one thing about the car-buying experience, what would it be?</span>
           <textarea name="change_one"></textarea>
         </div>
 
         <div class="question-block">
-          <span class="question">18. Would you consider a more digital dealership?</span>
+          <span class="question">18. Would you consider a more digital dealership experience?</span>
           <div class="option"><input type="radio" name="future_digital" value="yes">Yes</div>
           <div class="option"><input type="radio" name="future_digital" value="maybe">Maybe</div>
           <div class="option"><input type="radio" name="future_digital" value="no">No</div>
         </div>
 
         <div class="question-block">
-          <span class="question">19. What age bracket are you in?</span>
+          <span class="question">19. Which age bracket do you fall into?</span>
           <div class="option"><input type="radio" name="age" value="under_21">Under 21</div>
           <div class="option"><input type="radio" name="age" value="21_30">21–30</div>
           <div class="option"><input type="radio" name="age" value="31_40">31–40</div>
@@ -388,22 +390,18 @@
         <div class="btn-row">
           <button type="button" class="btn btn-back" onclick="prevPage()">Back</button>
         </div>
-
       </div>
-
     </form>
 
     <div id="successScreen" class="success-screen">
       <h2>Thank you for your feedback!</h2>
       <p>We appreciate that you've taken the time to shape the Automotive Purchase landscape.</p>
     </div>
-
   </div>
 
+
+  <!-- SCRIPT: Multi-page Logic + Supabase Submit -->
   <script>
-    // --------------------
-    // PAGE HANDLING
-    // --------------------
     let currentPage = 1;
     const totalPages = 4;
 
@@ -432,52 +430,41 @@
       }
     }
 
-    updateProgress();
-
     function showToast() {
       const toast = document.getElementById('toast');
       toast.classList.add('show');
       setTimeout(() => toast.classList.remove('show'), 2800);
     }
 
-    // --------------------
-    // SUPABASE CLIENT
-    // --------------------
-    const supabaseUrl = "YOUR_SUPABASE_URL";
-    const supabaseAnonKey = "YOUR_ANON_KEY";
-    const supabaseClient = supabase.createClient(supabaseUrl, supabaseAnonKey);
-
-    // --------------------
-    // FORM SUBMISSION
-    // --------------------
+    // Handle Submit + Insert into Supabase
     document.getElementById('surveyForm').addEventListener('submit', async function (e) {
       e.preventDefault();
 
       const formData = new FormData(this);
-      const dataObject = {};
+      const data = {};
 
-      // Convert all fields to clean JSON object
       formData.forEach((value, key) => {
-        dataObject[key] = value;
+        data[key] = value;
       });
 
-      // Insert into Supabase
-      const { data, error } = await supabaseClient
+      // Insert to Supabase
+      const { error } = await supabase
         .from("customer_survey_responses")
-        .insert([dataObject]);
+        .insert([data]);
 
       if (error) {
-        console.error(error);
-        alert("Something went wrong submitting your survey.");
+        console.error("Supabase insert error:", error);
+        alert("Something went wrong saving your survey.");
         return;
       }
 
-      // Success screen
+      // Success UI
       this.style.display = 'none';
       document.getElementById('successScreen').style.display = 'block';
       showToast();
     });
 
+    updateProgress();
   </script>
 
 </body>
