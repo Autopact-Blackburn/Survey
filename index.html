@@ -198,7 +198,7 @@
 <body>
 
   <div id="toast" class="toast">
-    Thank you for your feedback! We appreciate that you've taken the time to shape the Automotive Purchase landscape.
+    Please answer all required questions before continuing.
   </div>
 
   <div class="container">
@@ -211,7 +211,7 @@
       <div id="progressBar" class="progress-bar"></div>
     </div>
 
-    <form id="surveyForm">
+    <form id="surveyForm" novalidate>
 
       <!-- PAGE 1 -->
       <div class="page active" data-page="1">
@@ -219,7 +219,7 @@
 
         <div class="question-block">
           <span class="question">1. When did you purchase your vehicle from us?</span>
-          <div class="option"><input type="radio" name="purchase_time" value="past_month">Within the past month</div>
+          <div class="option"><input type="radio" name="purchase_time" value="past_month" required>Within the past month</div>
           <div class="option"><input type="radio" name="purchase_time" value="1_3">1–3 months ago</div>
           <div class="option"><input type="radio" name="purchase_time" value="3_12">3–12 months ago</div>
           <div class="option"><input type="radio" name="purchase_time" value="over_year">Over a year ago</div>
@@ -227,7 +227,7 @@
 
         <div class="question-block">
           <span class="question">2. How would you rate your overall sales experience?</span>
-          <div class="option"><input type="radio" name="exp_rating" value="excellent">Excellent</div>
+          <div class="option"><input type="radio" name="exp_rating" value="excellent" required>Excellent</div>
           <div class="option"><input type="radio" name="exp_rating" value="good">Good</div>
           <div class="option"><input type="radio" name="exp_rating" value="average">Average</div>
           <div class="option"><input type="radio" name="exp_rating" value="below_avg">Below average</div>
@@ -236,7 +236,7 @@
 
         <div class="question-block">
           <span class="question">3. When you visited for your purchase, how quickly were you greeted or acknowledged?</span>
-          <div class="option"><input type="radio" name="greet_time" value="1_min">Within 1 minute</div>
+          <div class="option"><input type="radio" name="greet_time" value="1_min" required>Within 1 minute</div>
           <div class="option"><input type="radio" name="greet_time" value="1_5">1–5 minutes</div>
           <div class="option"><input type="radio" name="greet_time" value="5_10">5–10 minutes</div>
           <div class="option"><input type="radio" name="greet_time" value="10_plus">More than 10 minutes</div>
@@ -245,17 +245,17 @@
 
         <div class="question-block">
           <span class="question">4. What parts of your purchase experience felt smooth or easy?</span>
-          <textarea name="smooth"></textarea>
+          <textarea name="smooth" required></textarea>
         </div>
 
         <div class="question-block">
           <span class="question">5. What parts felt slow, confusing, or frustrating?</span>
-          <textarea name="frustrating"></textarea>
+          <textarea name="frustrating" required></textarea>
         </div>
 
         <div class="question-block">
           <span class="question">6. Thinking about other dealerships you visited, what stood out to you – positively or negatively?</span>
-          <textarea name="other_dealers"></textarea>
+          <textarea name="other_dealers" required></textarea>
         </div>
 
         <div class="btn-row">
@@ -270,49 +270,26 @@
 
         <div class="question-block">
           <span class="question">7. How comfortable did you feel with your sales consultant?</span>
-          <div class="option"><input type="radio" name="comfort" value="very">Very comfortable</div>
+          <div class="option"><input type="radio" name="comfort" value="very" required>Very comfortable</div>
           <div class="option"><input type="radio" name="comfort" value="somewhat">Somewhat comfortable</div>
           <div class="option"><input type="radio" name="comfort" value="neutral">Neutral</div>
           <div class="option"><input type="radio" name="comfort" value="dislike">Disliked</div>
           <div class="option"><input type="radio" name="comfort" value="na">N/A</div>
         </div>
 
-<div class="question-block">
-  <span class="question">
-    8. How much influence did the sales consultant have on your purchase decision?
-  </span>
+        <div class="question-block">
+          <span class="question">8. How much influence did the sales consultant have on your purchase decision?</span>
 
-  <div class="option">
-    <input type="radio" name="consultant_influence" value="none">
-    No influence – I had already decided
-  </div>
-
-  <div class="option">
-    <input type="radio" name="consultant_influence" value="small">
-    Small influence – helped confirm my decision
-  </div>
-
-  <div class="option">
-    <input type="radio" name="consultant_influence" value="moderate">
-    Moderate influence – helped compare and clarify
-  </div>
-
-  <div class="option">
-    <input type="radio" name="consultant_influence" value="significant">
-    Significant influence – strongly shaped my decision
-  </div>
-
-  <div class="option">
-    <input type="radio" name="consultant_influence" value="critical">
-    Critical influence – I would not have purchased without them
-  </div>
-</div>
-
-
+          <div class="option"><input type="radio" name="consultant_influence" value="none" required>No influence – I had already decided</div>
+          <div class="option"><input type="radio" name="consultant_influence" value="small">Small influence – helped confirm my decision</div>
+          <div class="option"><input type="radio" name="consultant_influence" value="moderate">Moderate influence – helped compare and clarify</div>
+          <div class="option"><input type="radio" name="consultant_influence" value="significant">Significant influence – strongly shaped my decision</div>
+          <div class="option"><input type="radio" name="consultant_influence" value="critical">Critical influence – I would not have purchased without them</div>
+        </div>
 
         <div class="question-block">
           <span class="question">9. Did you feel the team followed up with you appropriately?</span>
-          <div class="option"><input type="radio" name="follow_up" value="yes">Yes</div>
+          <div class="option"><input type="radio" name="follow_up" value="yes" required>Yes</div>
           <div class="option"><input type="radio" name="follow_up" value="sometimes">Sometimes</div>
           <div class="option"><input type="radio" name="follow_up" value="rarely">Rarely</div>
           <div class="option"><input type="radio" name="follow_up" value="never">Never</div>
@@ -322,28 +299,28 @@
           <span class="question">
             10. Would beginning the process using a QR code (or app) so you don't need to repeat yourself improve your experience?
           </span>
-          <div class="option"><input type="radio" name="qr_helpful" value="yes">Yes</div>
+          <div class="option"><input type="radio" name="qr_helpful" value="yes" required>Yes</div>
           <div class="option"><input type="radio" name="qr_helpful" value="maybe">Maybe</div>
           <div class="option"><input type="radio" name="qr_helpful" value="no">No</div>
         </div>
 
         <div class="question-block">
           <span class="question">11. Would you prefer to browse before speaking with a consultant?</span>
-          <div class="option"><input type="radio" name="prefer_browse" value="yes">Yes</div>
+          <div class="option"><input type="radio" name="prefer_browse" value="yes" required>Yes</div>
           <div class="option"><input type="radio" name="prefer_browse" value="maybe">Maybe</div>
           <div class="option"><input type="radio" name="prefer_browse" value="no">No</div>
         </div>
 
         <div class="question-block">
           <span class="question">12. Would instant online test-drive booking improve your experience?</span>
-          <div class="option"><input type="radio" name="online_booking" value="yes">Yes</div>
+          <div class="option"><input type="radio" name="online_booking" value="yes" required>Yes</div>
           <div class="option"><input type="radio" name="online_booking" value="maybe">Maybe</div>
           <div class="option"><input type="radio" name="online_booking" value="no">No</div>
         </div>
 
         <div class="question-block">
           <span class="question">13. Would digitally entering your details be more convenient?</span>
-          <div class="option"><input type="radio" name="digital_details" value="yes">Yes</div>
+          <div class="option"><input type="radio" name="digital_details" value="yes" required>Yes</div>
           <div class="option"><input type="radio" name="digital_details" value="maybe">Maybe</div>
           <div class="option"><input type="radio" name="digital_details" value="no">No</div>
         </div>
@@ -360,7 +337,7 @@
 
         <div class="question-block">
           <span class="question">14. How long did your consultant spend on delivery?</span>
-          <div class="option"><input type="radio" name="delivery_time" value="0_10">0–10 minutes</div>
+          <div class="option"><input type="radio" name="delivery_time" value="0_10" required>0–10 minutes</div>
           <div class="option"><input type="radio" name="delivery_time" value="10_30">10–30 minutes</div>
           <div class="option"><input type="radio" name="delivery_time" value="30_60">30–60 minutes</div>
           <div class="option"><input type="radio" name="delivery_time" value="60_plus">60+ minutes</div>
@@ -369,7 +346,7 @@
 
         <div class="question-block">
           <span class="question">15. Did this feel:</span>
-          <div class="option"><input type="radio" name="delivery_length" value="right">About right</div>
+          <div class="option"><input type="radio" name="delivery_length" value="right" required>About right</div>
           <div class="option"><input type="radio" name="delivery_length" value="short">Too short</div>
           <div class="option"><input type="radio" name="delivery_length" value="long">Too long</div>
           <div class="option"><input type="radio" name="delivery_length" value="unsure">Unsure</div>
@@ -377,12 +354,12 @@
 
         <div class="question-block">
           <span class="question">16. What did you enjoy most?</span>
-          <textarea name="delivery_enjoyed"></textarea>
+          <textarea name="delivery_enjoyed" required></textarea>
         </div>
 
         <div class="question-block">
           <span class="question">17. What could have improved your delivery?</span>
-          <textarea name="delivery_improve"></textarea>
+          <textarea name="delivery_improve" required></textarea>
         </div>
 
         <div class="btn-row">
@@ -390,64 +367,57 @@
           <button type="button" class="btn btn-next" onclick="nextPage()">Next</button>
         </div>
       </div>
-
       <!-- PAGE 4 -->
       <div class="page" data-page="4">
         <div class="section-label">Section 4 · Final Thoughts</div>
 
-<div class="question-block">
-  <span class="question">
-    18. When you are physically in the dealership, what would you consider the ideal total time for the in-store purchase process?
-  </span>
+        <div class="question-block">
+          <span class="question">
+            18. When you are physically in the dealership, what would you consider the ideal total time for the in-store purchase process?
+          </span>
 
-  <div class="option">
-    <input type="radio" name="ideal_purchase_time" value="under_30">
-    Under 30 minutes
-  </div>
-
-  <div class="option">
-    <input type="radio" name="ideal_purchase_time" value="30_60">
-    30 minutes – 1 hour
-  </div>
-
-  <div class="option">
-    <input type="radio" name="ideal_purchase_time" value="1_2">
-    1 – 2 hours
-  </div>
-
-  <div class="option">
-    <input type="radio" name="ideal_purchase_time" value="as_long_as_needed">
-    As long as it takes, if the experience is good
-  </div>
-
-  <div class="option">
-    <input type="radio" name="ideal_purchase_time" value="fully_online">
-    Prefer a mostly or completely online (Amazon-style) experience
-  </div>
-</div>
-
+          <div class="option"><input type="radio" name="ideal_purchase_time" value="under_30" required>Under 30 minutes</div>
+          <div class="option"><input type="radio" name="ideal_purchase_time" value="30_60">30 minutes – 1 hour</div>
+          <div class="option"><input type="radio" name="ideal_purchase_time" value="1_2">1 – 2 hours</div>
+          <div class="option"><input type="radio" name="ideal_purchase_time" value="as_long_as_needed">As long as it takes, if the experience is good</div>
+          <div class="option"><input type="radio" name="ideal_purchase_time" value="fully_online">Prefer a mostly or completely online (Amazon-style) experience</div>
+        </div>
 
         <div class="question-block">
           <span class="question">19. If you could change one thing about the car-buying experience, what would it be?</span>
-          <textarea name="change_one"></textarea>
+          <textarea name="change_one" required></textarea>
         </div>
 
         <div class="question-block">
           <span class="question">20. Would you consider a more digital dealership experience?</span>
-          <div class="option"><input type="radio" name="future_digital" value="yes">Yes</div>
+          <div class="option"><input type="radio" name="future_digital" value="yes" required>Yes</div>
           <div class="option"><input type="radio" name="future_digital" value="maybe">Maybe</div>
           <div class="option"><input type="radio" name="future_digital" value="no">No</div>
         </div>
 
         <div class="question-block">
           <span class="question">21. Which age bracket do you fall into?</span>
-          <div class="option"><input type="radio" name="age" value="under_21">Under 21</div>
+          <div class="option"><input type="radio" name="age" value="under_21" required>Under 21</div>
           <div class="option"><input type="radio" name="age" value="21_30">21–30</div>
           <div class="option"><input type="radio" name="age" value="31_40">31–40</div>
           <div class="option"><input type="radio" name="age" value="41_50">41–50</div>
           <div class="option"><input type="radio" name="age" value="51_60">51–60</div>
           <div class="option"><input type="radio" name="age" value="61_70">61–70</div>
           <div class="option"><input type="radio" name="age" value="70_plus">Over 70</div>
+        </div>
+
+        <!-- OPTIONAL EMAIL (NOT REQUIRED) -->
+        <div class="question-block">
+          <span class="question">Want to enter the draw for your next service on us?</span>
+          <p class="helper-text" style="margin:6px 0 8px; font-size:13px; color:#6b7280;">
+            Enter your email below to go into the draw. This is optional and your survey responses remain anonymous.
+          </p>
+          <input
+            type="email"
+            name="draw_email"
+            placeholder="Email address (optional)"
+            style="width:100%; padding:12px; border-radius:10px; border:1px solid #ddd;"
+          />
         </div>
 
         <button type="submit" class="btn btn-submit">Submit</button>
@@ -464,7 +434,6 @@
     </div>
   </div>
 
-
   <!-- SCRIPT: Multi-page Logic + Supabase Submit -->
   <script>
     let currentPage = 1;
@@ -479,9 +448,51 @@
       document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
       document.querySelector(`[data-page="${page}"]`).classList.add('active');
       updateProgress();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      toast.textContent = msg || "Please answer all required questions before continuing.";
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 2800);
+    }
+
+    // ✅ Validate ONLY visible page inputs
+    function validateCurrentPage() {
+      const form = document.getElementById('surveyForm');
+      const pageEl = document.querySelector(`.page[data-page="${currentPage}"]`);
+
+      // Temporarily disable required for fields NOT on this page
+      const requiredEls = Array.from(form.querySelectorAll('[required]'));
+      const disabled = [];
+
+      requiredEls.forEach(el => {
+        if (!pageEl.contains(el)) {
+          el.dataset.wasRequired = "1";
+          el.required = false;
+          disabled.push(el);
+        }
+      });
+
+      const ok = form.reportValidity();
+
+      // Restore required flags
+      disabled.forEach(el => {
+        if (el.dataset.wasRequired === "1") {
+          el.required = true;
+          delete el.dataset.wasRequired;
+        }
+      });
+
+      return ok;
     }
 
     function nextPage() {
+      if (!validateCurrentPage()) {
+        showToast("Please answer all questions on this page before continuing.");
+        return;
+      }
       if (currentPage < totalPages) {
         currentPage++;
         showPage(currentPage);
@@ -495,15 +506,15 @@
       }
     }
 
-    function showToast() {
-      const toast = document.getElementById('toast');
-      toast.classList.add('show');
-      setTimeout(() => toast.classList.remove('show'), 2800);
-    }
-
     // Handle Submit + Insert into Supabase
     document.getElementById('surveyForm').addEventListener('submit', async function (e) {
       e.preventDefault();
+
+      // Validate final page requireds (and overall)
+      if (!validateCurrentPage()) {
+        showToast("Please answer all required questions before submitting.");
+        return;
+      }
 
       const formData = new FormData(this);
       const data = {};
@@ -512,7 +523,6 @@
         data[key] = value;
       });
 
-      // Insert to Supabase
       const { error } = await supabase
         .from("customer_survey_responses")
         .insert([data]);
@@ -523,10 +533,9 @@
         return;
       }
 
-      // Success UI
       this.style.display = 'none';
       document.getElementById('successScreen').style.display = 'block';
-      showToast();
+      showToast("Thank you for your feedback! Your response has been submitted.");
     });
 
     updateProgress();
