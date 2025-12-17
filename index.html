@@ -187,11 +187,27 @@
   <!-- Supabase Client -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-  <script>
+    <script>
+  var supabase;
+
+  (function initSupabase() {
+    if (window.__supabaseClient) {
+      supabase = window.__supabaseClient;
+      return;
+    }
+
     const SUPABASE_URL = "https://jfvqdpephdqzalkcnmdy.supabase.co";
     const SUPABASE_KEY = "sb_publishable_l1p7oa8Lrp8rMPD2xcTyHw_vL_bwk8X";
-    const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
-  </script>
+
+    supabase = window.supabase.createClient(
+      SUPABASE_URL,
+      SUPABASE_KEY
+    );
+
+    window.__supabaseClient = supabase;
+  })();
+</script>
+
 
 </head>
 
@@ -543,3 +559,4 @@
 
 </body>
 </html>
+
